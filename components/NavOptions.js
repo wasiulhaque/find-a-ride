@@ -1,12 +1,14 @@
 import { FlatList, Text, TouchableOpacity, View, Image } from 'react-native'
 import React from 'react'
 import tw from 'twrnc';
+import {Icon} from 'react-native-elements'
+
 const data = [
     {
         id: "123",
         title: "Find a Ride",
-        image: "",
-        screen: "",
+        image: "https://i.ibb.co/x3HTqj2/San-Francisco-Airport-Car-Service-Transportation-SFO.png",
+        screen: "MapScreen",
     }
 ]
 const NavOptions = () => {
@@ -16,13 +18,16 @@ const NavOptions = () => {
     keyExtractor={(item) => item.id}
     horizontal
     renderItem = {({item}) => (
-        <TouchableOpacity>
+        <TouchableOpacity style={tw`p-2 pl-6 pb-8 pt-4 bg-gray-200 m-2 w-40`}>
             <View>
                 <Image
                 style={{width: 120, height: 120, resizeMode: "contain"}} 
-                source={{uri:"https://www.uber-assets.com/image/upload/f_auto,q_auto:eco,c_fill,w_558,h_372/v1569015390/assets/fa/0e26a9-9d9d-4190-ad6d-a879ccef4266/original/Select.png"}}
+                source={{uri:item.image}}
                 />
-                <Text>{item.title}</Text>
+                <Text style={tw`mt-2 text-lg font-semibold`}>{item.title}</Text>
+                <Icon
+                 style={tw`p-2 bg-black rounded-full w-10 mt-4`}
+                 name="arrowright" color="white" type="antdesign" />
             </View>
         </TouchableOpacity>
     )}
