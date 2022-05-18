@@ -38,7 +38,7 @@ const HomeScreen = () => {
             },
           }}
           onPress={(data, details = null) => {
-            dispatch(
+             dispatch(
               setOrigin({
                 location: details.geometry.location,
                 description: data.description,
@@ -46,7 +46,7 @@ const HomeScreen = () => {
             );
             dispatch(setDestination(null));
           }}
-          fetchDetails={true}
+         fetchDetails={true}
           returnKeyType={'search'}
           enablePoweredByContainer={false}
           minLength={2}
