@@ -27,34 +27,37 @@ const HomeScreen = () => {
         }}
       />
 
-      <GooglePlacesAutocomplete
-        placeholder='Where From?'
-        styles={{
-          container: {
-            flex: 0,
-          },
-          textInput: {
-            fontSize: 18,
-          },
-        }}
-        onPress={(data, details = null)=> {
-          dispatch(setOrigin({
-            location: details.geometry.location,
-            description: data.description
-          }))
-
-          dispatch(setDestination(null));
-        }}
-        fetchDetails={true}
-        returnKeyType={"search"}
-        query={{
-          key: GOOGLE_MAPS_APIKEY,
-          language:'en'
-        }}
-
-        nearbyPlacesAPI='GooglePlacesSearch'
-        debounce={400}
-      />
+<GooglePlacesAutocomplete
+          placeholder="Where From?"
+          styles={{
+            container: {
+              flex: 0,
+            },
+            textInput: {
+              fontSize: 18,
+            },
+          }}
+          onPress={(data, details = null) => {
+            dispatch(
+              setOrigin({
+                location: details.geometry.location,
+                description: data.description,
+              })
+            );
+            dispatch(setDestination(null));
+          }}
+          fetchDetails={true}
+          returnKeyType={'search'}
+          enablePoweredByContainer={false}
+          minLength={2}
+          nearbyPlacesAPI="GooglePlacesSearch"
+          debounce={400}
+          query={{
+            key: GOOGLE_MAPS_APIKEY,
+            language: 'en',
+          }}
+        />
+        <View style={{ marginBottom: 40 }}></View>
 
       <NavOptions/>
       <StatusBar style='auto'/>
