@@ -7,6 +7,9 @@ import {GOOGLE_MAPS_APIKEY} from "@env";
 import { useDispatch } from 'react-redux';
 import { setDestination } from '../slices/navSlice';
 import { useNavigation } from '@react-navigation/native';
+import { TouchableOpacity } from 'react-native';
+import { Icon } from 'react-native-elements';
+import NavFavourites from './NavFavourites';
 
 const NavigateCard = () => {
 const dispatch = useDispatch();
@@ -14,7 +17,7 @@ const navigation = useNavigation();
     
   return (
     <SafeAreaView style={tw`bg-white flex-1`}>
-        <Text style={tw`text-center py-1 text-xl`}>Good Morning</Text>
+        <Text style={tw`text-center py-1 text-xl`}>Greetings</Text>
         <View style={tw`flex-shrink`}>
             <View>
                 <GooglePlacesAutocomplete
@@ -41,6 +44,15 @@ const navigation = useNavigation();
                 />
             </View>
         </View>
+        <View style={tw`flex-row bg-white justify-evenly py-8 mt-auto border-t border-gray-100`}>
+            <TouchableOpacity
+            onPress={()=>navigation.navigate('RideOptionsCard')}
+            style={tw`flex  justify-evenly bg-black w-50 h-20 px-4 py-3 rounded-full`}>
+                <Icon name='car' type='font-awesome' color='white' size={16} />
+                <Text style={tw`text-white text-center`}>Find a Ride</Text>
+            </TouchableOpacity>
+        </View>
+        
     </SafeAreaView>
   )
 }
