@@ -12,10 +12,10 @@ const MapScreen = () => {
 
   return (
     <View>
-      <View style={tw `h-4/7`}>
+      <View style={tw `h-1/2`}>
         <Map/>
         </View>
-      <View style={tw `h-3/7`}>
+      <View style={tw `h-1/2`}>
         <Stack.Navigator>
           <Stack.Screen
             name = "NavigateCard"

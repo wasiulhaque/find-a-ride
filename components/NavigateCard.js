@@ -17,7 +17,7 @@ const navigation = useNavigation();
     
   return (
     <SafeAreaView style={tw`bg-white flex-1`}>
-        <Text style={tw`text-center py-1 text-xl`}>Greetings</Text>
+        <Text style={tw`text-center py-2 text-xl`}>Greetings</Text>
         <View style={tw`flex-shrink`}>
             <View>
                 <GooglePlacesAutocomplete
@@ -44,7 +44,7 @@ const navigation = useNavigation();
                 />
             </View>
         </View>
-        <View style={tw`flex-row bg-white justify-evenly py-8 mt-auto border-t border-gray-100`}>
+        <View style={tw`flex-row bg-white justify-evenly py-4 mt-auto border-t border-gray-100`}>
             <TouchableOpacity
             onPress={()=>navigation.navigate('RideOptionsCard')}
             style={tw`flex  justify-evenly bg-black w-50 h-20 px-4 py-3 rounded-full`}>
