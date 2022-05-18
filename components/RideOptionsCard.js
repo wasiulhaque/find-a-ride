@@ -4,6 +4,8 @@ import tw from 'twrnc';
 import { SafeAreaView } from 'react-native'
 import { Icon } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
+import { useSelector } from 'react-redux';
+import { selectTravelTimeInformation } from '../slices/navSlice';
 
 
 const data = [
@@ -27,14 +29,17 @@ const data = [
   },
 ]
 
+const SURGE_CHARGE_RATE = 1.5;
+
 const RideOptionsCard = () => {
   const navigation = useNavigation();
   const [selected, setSelected] = useState(null);
+  const travelTimeInformation = useSelector(selectTravelTimeInformation);
 
   return (
     <SafeAreaView style={tw`bg-white flex-grow`}>
       <View>
-      <Text style={tw`text-center py-5 text-xl`}>Select a Ride</Text>
+      <Text style={tw`text-center py-5 text-xl`}>Select a Ride - {travelTimeInformation?.distance.text}</Text>
       </View>
 
       <FlatList
@@ -54,14 +59,18 @@ const RideOptionsCard = () => {
           />
            <View style={tw`-ml-6`}>
              <Text style={tw`text-xl font-semibold`}>{title}</Text>
-             <Text>Travel Time</Text>
+             <Text>{travelTimeInformation?.duration.text}</Text>
            </View>
-           <Text style={tw`text-xl`}>100 BDT</Text>
+           <Text style={tw`text-xl`}>
+           ৳{(travelTimeInformation?.duration.value * SURGE_CHARGE_RATE * multiplier) / 100}
+           </Text>
         </TouchableOpacity>
       )}
       />
     <View>
-      
+      <TouchableOpacity style={tw`bg-black py-3 m-0 ${!selected && "bg-gray-300"}`}>
+      <Text style={tw`text-center text-white text-xl`}>Proceed with {selected?.title}</Text>
+      </TouchableOpacity>
     </View>
     </SafeAreaView>
   )
