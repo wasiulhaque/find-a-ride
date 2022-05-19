@@ -82,5 +82,5 @@ const styles = StyleSheet.create({
     text: { fontSize: 15 ,margin: 12, color: 'white', fontWeight:'bold' },
     bodyText: { fontSize: 15,margin: 15, color: 'black' },
     tail: { height: 70, backgroundColor: 'green' },
-    fairText: { fontSize: 30 ,margin: 10, color: 'white', fontWeight:'bold', paddingLeft: 40},
+    fairText: { fontSize: 23 ,margin: 10, color: 'white', fontWeight:'bold', paddingLeft: 40},
 })
