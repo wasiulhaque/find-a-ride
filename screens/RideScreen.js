@@ -25,7 +25,7 @@ const RideScreen = () => {
           ['FATR'+RandomNumber, fair.type, travelTimeInformation.duration.text],
         ],
         fairCol:[
-            ['Total Fair', fair.amount],
+            ['Total Fair', '৳ '+fair.amount],
         ],
         fairAmount:[
             [fair.amount]
@@ -39,7 +39,7 @@ const RideScreen = () => {
       }
 
   return (
-    <SafeAreaView style={tw`flex-col py-32 px-3`}>
+    <SafeAreaView style={tw`flex-col py-25 px-3`}>
       <Text style={tw`text-8 font-semibold  text-center`}>Your Trip Information</Text>
 
       <View style={styles.container}>

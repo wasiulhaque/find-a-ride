@@ -29,7 +29,7 @@ const data = [
   },
 ]
 
-const SURGE_CHARGE_RATE = 1.5;
+const SURGE_CHARGE_RATE = 25.0;
 
 const RideOptionsCard = () => {
   const navigation = useNavigation();
@@ -70,7 +70,7 @@ const RideOptionsCard = () => {
              <Text>{travelTimeInformation?.duration.text}</Text>
            </View>
            <Text style={tw`text-xl`}>
-           ৳{(travelTimeInformation?.duration.value * SURGE_CHARGE_RATE * multiplier) / 100}
+           ৳{((travelTimeInformation?.duration.value * SURGE_CHARGE_RATE * multiplier).toFixed(2) / 100).toFixed(2)}
            </Text>
         </TouchableOpacity>
       )}
