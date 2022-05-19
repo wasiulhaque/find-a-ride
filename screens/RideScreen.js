@@ -1,10 +1,11 @@
-import { StyleSheet, Text, View, Button } from 'react-native'
+import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native'
 import React, { useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { selectDestination, selectFair, selectOrigin, selectTravelTimeInformation } from '../slices/navSlice'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
 import tw from 'twrnc';
+import { useNavigation } from '@react-navigation/native';
 
 
 
@@ -14,6 +15,7 @@ const RideScreen = () => {
     const fair = useSelector(selectFair);   
     const origin = useSelector(selectOrigin);
     const destination = useSelector(selectDestination);
+    const navigation = useNavigation();
 
     var RandomNumber = Math.floor(Math.random() * 1000) + 1 ;
 
@@ -37,7 +39,7 @@ const RideScreen = () => {
       }
 
   return (
-    <SafeAreaView style={tw`flex-col py-45 px-3`}>
+    <SafeAreaView style={tw`flex-col py-32 px-3`}>
       <Text style={tw`text-8 font-semibold  text-center`}>Your Trip Information</Text>
 
       <View style={styles.container}>
@@ -57,6 +59,15 @@ const RideScreen = () => {
           
         </Table>
       </View>
+
+      <TouchableOpacity
+      onPress={()=>{
+          navigation.navigate('PaymentScreen');
+      }}
+      style={tw`bg-red-700 py-6 m-0`}>
+    <Text style={tw`text-center text-white text-xl font-semibold`}>Pay Now</Text>
+    
+      </TouchableOpacity>
       
     </SafeAreaView>
     
