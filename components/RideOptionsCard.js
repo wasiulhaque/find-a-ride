@@ -68,7 +68,9 @@ const RideOptionsCard = () => {
       )}
       />
     <View>
-      <TouchableOpacity style={tw`bg-black py-3 m-0 ${!selected && "bg-gray-300"}`}>
+      <TouchableOpacity
+       onPress={()=>navigation.navigate('RideScreen')}
+       style={tw`bg-black py-3 m-0 ${!selected && "bg-gray-300"}`}>
       <Text style={tw`text-center text-white text-xl`}>Proceed with {selected?.title}</Text>
       </TouchableOpacity>
     </View>
