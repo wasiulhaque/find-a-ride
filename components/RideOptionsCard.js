@@ -4,8 +4,8 @@ import tw from 'twrnc';
 import { SafeAreaView } from 'react-native'
 import { Icon } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
-import { useSelector } from 'react-redux';
-import { selectTravelTimeInformation } from '../slices/navSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectFair, selectTravelTimeInformation, setFair, setTravelTimeInformation } from '../slices/navSlice';
 
 
 const data = [
@@ -35,6 +35,8 @@ const RideOptionsCard = () => {
   const navigation = useNavigation();
   const [selected, setSelected] = useState(null);
   const travelTimeInformation = useSelector(selectTravelTimeInformation);
+  const fair = useSelector(selectFair);
+  const dispatch = useDispatch();
 
   return (
     <SafeAreaView style={tw`bg-white flex-grow`}>
@@ -47,7 +49,13 @@ const RideOptionsCard = () => {
       keyExtractor={(item)=>item.id}
       renderItem={({item: {id, title, multiplier, image}, item})=>(
         <TouchableOpacity 
-        onPress={()=>setSelected(item)}
+        onPress={()=>{
+          setSelected(item);
+          dispatch(setFair({
+            type: item.title,
+            amount: (travelTimeInformation?.duration.value * SURGE_CHARGE_RATE * multiplier) / 100
+          }))
+        }}
         style={tw`flex-row justify-between items-center px-10 ${id === selected?.id && "bg-gray-200"}`}>
           <Image
             style={{
@@ -69,7 +77,9 @@ const RideOptionsCard = () => {
       />
     <View>
       <TouchableOpacity
-       onPress={()=>navigation.navigate('RideScreen')}
+       onPress={()=>{
+         navigation.navigate('RideScreen');
+        }}
        style={tw`bg-black py-3 m-0 ${!selected && "bg-gray-300"}`}>
       <Text style={tw`text-center text-white text-xl`}>Proceed with {selected?.title}</Text>
       </TouchableOpacity>
