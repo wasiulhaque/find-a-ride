@@ -8,6 +8,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import MapScreen from './screens/MapScreen';
 import RideScreen from './screens/RideScreen';
+import PaymentScreen from './screens/PaymentScreen';
+import { LogBox } from 'react-native';
+
+LogBox.ignoreAllLogs();
+
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -35,6 +40,13 @@ export default function App() {
                 <Stack.Screen
                 name='RideScreen'
                 component={RideScreen}
+                options={{
+                  headerShown: false,
+                }}
+                />
+                <Stack.Screen
+                name='PaymentScreen'
+                component={PaymentScreen}
                 options={{
                   headerShown: false,
                 }}

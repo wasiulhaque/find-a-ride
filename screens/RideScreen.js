@@ -9,7 +9,6 @@ import { useNavigation } from '@react-navigation/native';
 
 
 
-
 const RideScreen = () => {
     const travelTimeInformation = useSelector(selectTravelTimeInformation);
     const fair = useSelector(selectFair);   

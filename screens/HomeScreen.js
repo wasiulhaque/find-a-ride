@@ -13,18 +13,18 @@ import NavFavourites from '../components/NavFavourites';
 const HomeScreen = () => {
   const dispatch = useDispatch();
   return (
-    <SafeAreaView style={tw`bg-white h-full`}>
+    <SafeAreaView style={tw`bg-white h-full py-15`}>
     <View style={tw`p-5`}>
       <Image
         style={{
-            width: 110,
-            height: 100,
+            width: 132,
+            height: 150,
             marginTop: 30,
             marginLeft: 0,
             resizeMode: "contain",
         }}
         source={{
-            uri: "https://logos-world.net/wp-content/uploads/2020/05/Uber-Logo.png"
+            uri: "https://i.ibb.co/LQPDCzv/logo.png"
         }}
       />
 
