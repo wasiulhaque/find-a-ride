@@ -10,51 +10,17 @@ import MapScreen from './screens/MapScreen';
 import RideScreen from './screens/RideScreen';
 import PaymentScreen from './screens/PaymentScreen';
 import { LogBox } from 'react-native';
+import UserStack from './stacks/UserStack';
 
 LogBox.ignoreAllLogs();
 
 
 export default function App() {
-  const Stack = createNativeStackNavigator();
-
-
   return (
     <Provider store={store}>
-      <NavigationContainer>
         <SafeAreaProvider>
-          <Stack.Navigator>
-                <Stack.Screen
-                name='HomeScreen'
-                component={HomeScreen}
-                options={{
-                  headerShown: false,
-                }}
-                />
-                <Stack.Screen
-                name='MapScreen'
-                component={MapScreen}
-                options={{
-                  headerShown: false,
-                }}
-                />
-                <Stack.Screen
-                name='RideScreen'
-                component={RideScreen}
-                options={{
-                  headerShown: false,
-                }}
-                />
-                <Stack.Screen
-                name='PaymentScreen'
-                component={PaymentScreen}
-                options={{
-                  headerShown: false,
-                }}
-                />
-          </Stack.Navigator>
-          {/*<HomeScreen/>*/}
+          <UserStack />
         </SafeAreaProvider>
-      </NavigationContainer>
     </Provider>
   );
 }

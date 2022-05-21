@@ -2,7 +2,6 @@ import { FlatList, StyleSheet, Text, TouchableOpacity, View, Image } from 'react
 import React, { useState } from 'react';
 import tw from 'twrnc';
 import { SafeAreaView } from 'react-native'
-import { Icon } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFair, selectTravelTimeInformation, setFair, setTravelTimeInformation } from '../slices/navSlice';

@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native'
-import React, { useRef } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
 import { selectDestination, selectFair, selectOrigin, selectTravelTimeInformation } from '../slices/navSlice'
 import { SafeAreaView } from 'react-native-safe-area-context';

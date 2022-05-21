@@ -9,7 +9,6 @@ import { setDestination } from '../slices/navSlice';
 import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native';
 import { Icon } from 'react-native-elements';
-import NavFavourites from './NavFavourites';
 
 const NavigateCard = () => {
 const dispatch = useDispatch();

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TouchableWithoutFeedbackComponent, View } from 'react-native'
+import { StyleSheet } from 'react-native'
 import React from 'react'
 import { FlatList, TouchableOpacity } from 'react-native';
 import { Icon } from 'react-native-elements';
